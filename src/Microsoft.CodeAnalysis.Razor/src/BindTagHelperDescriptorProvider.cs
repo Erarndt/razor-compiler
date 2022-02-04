@@ -196,6 +196,15 @@ internal class BindTagHelperDescriptorProvider : ITagHelperDescriptorProvider
 
                 parameter.SetPropertyName("Culture");
             });
+
+            attribute.BindAttributeParameter(parameter =>
+            {
+                parameter.Name = "after";
+                parameter.TypeName = typeof(Delegate).FullName;
+                parameter.Documentation = ComponentResources.BindTagHelper_Element_Culture_Documentation;
+
+                parameter.SetPropertyName("Culture");
+            });
         });
 
         return builder.Build();
@@ -398,6 +407,15 @@ internal class BindTagHelperDescriptorProvider : ITagHelperDescriptorProvider
 
                     parameter.SetPropertyName("Culture");
                 });
+
+                a.BindAttributeParameter(parameter =>
+                {
+                    parameter.Name = "after";
+                    parameter.TypeName = typeof(Delegate).FullName;
+                    parameter.Documentation = ComponentResources.BindTagHelper_Element_Culture_Documentation;
+
+                    parameter.SetPropertyName("Culture");
+                });
             });
 
             // This is no longer supported. This is just here so we can add a diagnostic later on when this matches.
@@ -531,6 +549,7 @@ internal class BindTagHelperDescriptorProvider : ITagHelperDescriptorProvider
                         // a C# property will crash trying to create the toolips.
                         attribute.SetPropertyName(valueAttribute.GetPropertyName());
                 });
+
 
                 if (tagHelper.IsComponentFullyQualifiedNameMatch())
                 {
