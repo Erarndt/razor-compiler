@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using Microsoft.AspNetCore.Razor.Language;
@@ -659,6 +660,7 @@ internal class BindTagHelperDescriptorProvider : ITagHelperDescriptorProvider
         return results;
     }
 
+    [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     private struct ElementBindData
     {
         public ElementBindData(
@@ -692,6 +694,11 @@ internal class BindTagHelperDescriptorProvider : ITagHelperDescriptorProvider
         public string ChangeAttribute { get; }
         public bool IsInvariantCulture { get; }
         public string Format { get; }
+
+        private string GetDebuggerDisplay()
+        {
+            return $"Element: {Element} - Suffix: {Suffix ?? "(none)"} - Type: {TypeAttribute} Value: {ValueAttribute} Change: {ChangeAttribute}";
+        }
     }
 
     private class BindElementDataVisitor : SymbolVisitor
