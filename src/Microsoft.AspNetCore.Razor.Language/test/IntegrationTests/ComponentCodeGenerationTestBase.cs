@@ -1646,7 +1646,7 @@ namespace Test
     }
 
     [Fact]
-    public void BindToComponent_SpecifiesValue_WithGetSet()
+    public void BindToComponent_SpecifiesValue_WithGetSet_TaskReturningDelegate()
     {
         // Arrange
         AdditionalSyntaxTrees.Add(Parse(@"

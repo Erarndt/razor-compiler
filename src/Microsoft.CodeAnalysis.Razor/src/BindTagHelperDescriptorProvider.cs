@@ -642,6 +642,7 @@ internal class BindTagHelperDescriptorProvider : ITagHelperDescriptorProvider
                         parameter.Documentation = ComponentResources.BindTagHelper_Element_Get_Documentation;
 
                         parameter.SetPropertyName("Get");
+                        parameter.SetBindAttributeAlternative();
                     });
 
                     attribute.BindAttributeParameter(parameter =>
@@ -651,7 +652,6 @@ internal class BindTagHelperDescriptorProvider : ITagHelperDescriptorProvider
                         parameter.Documentation = ComponentResources.BindTagHelper_Element_Set_Documentation;
 
                         parameter.SetPropertyName("Set");
-                        parameter.SetBindAttributeAlternative();
                     });
 
                     attribute.BindAttributeParameter(parameter =>
